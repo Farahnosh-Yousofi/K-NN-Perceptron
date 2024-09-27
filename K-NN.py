@@ -114,34 +114,5 @@ for i, cls in enumerate(classes):
     print(f"F1-Score: {f1[i]:.2f}")
 
 
-# Question 3
-'''
-Iris Dataset: This dataset contains 150 instances of Iris flowers,
-which has 3 classes each class has a different type of Iris flower with respect to their features,
-sepal length in cm, sepal width in cm, petal length in cm, petal width in cm.
-This dataset is used to evaluating classification methods, and the best classification method for this dataset is Neural Network classification,
-because its  mean accuracy is higher (dot further right) and has shorter error bars (less variability) based on the baseline performance model figures.
 
-'''
 
-# Question 4
-# Step 1: Load the iris dataset into a pandas DataFrame
-iris_file_path = "iris/iris.data"  # Update this path
-column_names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class']
-iris_df = pd.read_csv(iris_file_path, header=None, names=column_names)
-
-# Step 2: Separate features and labels
-X = iris_df.drop('class', axis=1).values  # Features
-y = iris_df['class'].values               # Labels
-
-# Step 3: Split the data
-# Split into training set (60%) and test set (40%)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
-
-# Split temp set into validation set (20%) and test set (20%)
-X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
-
-# Display the shapes of the splits to verify
-print(f'Training set: {X_train.shape}, {y_train.shape}')
-print(f'Validation set: {X_val.shape}, {y_val.shape}')
-print(f'Test set: {X_test.shape}, {y_test.shape}')
