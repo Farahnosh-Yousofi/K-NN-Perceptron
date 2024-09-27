@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from matplotlib import pyplot
 import pandas as pd
 from pandas import DataFrame
+from sklearn.model_selection import train_test_split
 
 
 # Question 1
@@ -124,3 +125,23 @@ because its  mean accuracy is higher (dot further right) and has shorter error b
 '''
 
 # Question 4
+# Step 1: Load the iris dataset into a pandas DataFrame
+iris_file_path = "iris/iris.data"  # Update this path
+column_names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class']
+iris_df = pd.read_csv(iris_file_path, header=None, names=column_names)
+
+# Step 2: Separate features and labels
+X = iris_df.drop('class', axis=1).values  # Features
+y = iris_df['class'].values               # Labels
+
+# Step 3: Split the data
+# Split into training set (60%) and test set (40%)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+
+# Split temp set into validation set (20%) and test set (20%)
+X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
+
+# Display the shapes of the splits to verify
+print(f'Training set: {X_train.shape}, {y_train.shape}')
+print(f'Validation set: {X_val.shape}, {y_val.shape}')
+print(f'Test set: {X_test.shape}, {y_test.shape}')
