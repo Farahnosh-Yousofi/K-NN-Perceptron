@@ -6,6 +6,8 @@ from matplotlib import pyplot
 import pandas as pd
 from pandas import DataFrame
 
+
+# Question 1
 #Function for calculating the distance between two points using the Euclidean distance
 def calculate_distance(row1, row2):
     '''This function returns the distance between two points'''
@@ -84,6 +86,7 @@ prediction = predict_classification(dataset, test_data_point)
 print(prediction)
 
 
+# Question 2
 #Creating confusion matrix
 actual_data = pd.Series([1,2,3,1,3,3,2,1,1,1], name = "Actual")
 predicted_data = pd.Series([1,2,1,2,1,3,3,2,1,1], name = "Predicted")
@@ -109,3 +112,15 @@ for i, cls in enumerate(classes):
     print(f"Recall: {recall[i]:.2f}")
     print(f"F1-Score: {f1[i]:.2f}")
 
+
+# Question 3
+'''
+Iris Dataset: This dataset contains 150 instances of Iris flowers,
+which has 3 classes each class has a different type of Iris flower with respect to their features,
+sepal length in cm, sepal width in cm, petal length in cm, petal width in cm.
+This dataset is used to evaluating classification methods, and the best classification method for this dataset is Neural Network classification,
+because its  mean accuracy is higher (dot further right) and has shorter error bars (less variability) based on the baseline performance model figures.
+
+'''
+
+# Question 4
