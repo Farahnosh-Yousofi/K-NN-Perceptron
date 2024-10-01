@@ -1,4 +1,5 @@
 
+
 # Defining the function predict
 def predict(rows, weights):
     '''Returns the list of dot products between elements of rows and weights'''
@@ -53,3 +54,4 @@ def train_weights(train, n_epoch):
 n_epoch = 5
 weights = train_weights(dataset, n_epoch)
 print(weights)
+
